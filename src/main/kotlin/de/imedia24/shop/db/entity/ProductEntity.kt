@@ -13,22 +13,25 @@ import javax.persistence.Table
 data class ProductEntity(
     @Id
     @Column(name = "sku", nullable = false)
-    val sku: String,
+    val sku: String ="",
 
     @Column(name = "name", nullable = false)
-    val name: String,
+    val name: String="",
 
     @Column(name = "description")
     val description: String? = null,
 
     @Column(name = "price", nullable = false)
-    val price: BigDecimal,
+    val price: BigDecimal=BigDecimal.ZERO,
+
+    @Column(name = "stock_quantity")
+    val stockQuantity: Int=0,
 
     @UpdateTimestamp
     @Column(name = "created_at", nullable = false)
-    val createdAt: ZonedDateTime,
+    val createdAt: ZonedDateTime= ZonedDateTime.now(),
 
     @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
-    val updatedAt: ZonedDateTime
+    val updatedAt: ZonedDateTime= ZonedDateTime.now()
 )

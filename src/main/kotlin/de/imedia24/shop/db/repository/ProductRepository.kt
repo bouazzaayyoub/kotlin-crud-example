@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository
 interface ProductRepository : CrudRepository<ProductEntity, String> {
 
     fun findBySku(sku: String): ProductEntity?
+    fun findBySkuIn(skus: List<String>): List<ProductEntity>
 }
